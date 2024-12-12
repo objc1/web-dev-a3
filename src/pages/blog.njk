@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+title: Blog
+permalink: "blog/page-{{ pagination.pageNumber }}/index.html"
+pagination:
+  data: posts.posts
+  size: 4
+---
+
+<h1>Blog</h1>
+{%- set sortedBlogs = pagination.items -%}
+{%- for post in sortedBlogs -%}
+  <div class="card mb-4" style="width: auto;">
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{ post.date | readableDate }}</h6>
+      <p class="card-text">{{ post.text }}</p>
+      {% if post.picture %}
+        <img src="{{ post.picture }}" height="200">
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+  <div class="btn-group py-3" role="group" aria-label="Basic example">
+    {% if pagination.pageNumber > 0 %}
+      <a href="{{ pagination.href.previous }}">
+        <button type="button" class="btn btn-primary">Previous</button>
+      </a>
+    {% endif %}
+    {% if pagination.pageNumber < pagination.pages.length - 1 %}
+      <a href="{{ pagination.href.next }}" class="px-1">
+        <button type="button" class="btn btn-primary">Next</button>
+      </a>
+    {% endif %}
+  </div>

@@ -1,0 +1,21 @@
+{
+  "name": "assignment1",
+  "version": "1.0.0",
+  "main": ".eleventy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ghost.js && eleventy --serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "@tryghost/content-api": "^1.11.21",
+    "bootstrap": "^5.3.3",
+    "nunjucks-date-filter": "^0.1.1"
+  }
+}
